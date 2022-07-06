@@ -1,8 +1,7 @@
-// test.. uplade file to github (add file)xxx2.
-
 
 const express = require("express");
 const bodyParser = require("body-parser");
+const date = require(__dirname + "/date.js");
 
 const app = express();
 
@@ -14,17 +13,7 @@ app.use(express.static("public"));
 
 
 app.get("/", function(req, res) {
-
-  var today = new Date();
-
-var options = {
-  weekday: "long",
-  day: "numeric",
-  month: "long",
-};
-var day = today.toLocaleDateString("en-US", options);
-
-
+  let day = date.getDay();
   res.render("list", {listTitle: day, newListItem: items});
 });
 
